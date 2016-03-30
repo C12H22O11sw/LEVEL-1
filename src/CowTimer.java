@@ -1,6 +1,7 @@
 import java.applet.AudioClip;
 import java.io.IOException;
 import javax.swing.JApplet;
+import javax.swing.JOptionPane;
 
 public class CowTimer {
 	/*
@@ -11,7 +12,7 @@ public class CowTimer {
 	public static void main(String[] args) throws InterruptedException {
 		/* 1. Make a CowTimer, set the time and start it. */
 		CowTimer timer = new CowTimer();
-		int theTime = 100;
+		timer.setTime(10);
 		timer.start();
 
 	}
@@ -28,15 +29,17 @@ public class CowTimer {
 		 * 2. Count down the minutes, print the current minute then sleep for 60
 		 * seconds using Thread.sleep(int milliseconds).
 		 */
-
+		for(int i = 0; i<minutes; i++){
 		Thread.sleep(60*1000);
-
+		System.out.println(minutes-i);
 		/*
 		 * 3. When the timer is finished, use the playSound method to play a moo
 		 * sound. You can download one from freesound.org, then drag it into
 		 * your default package. Tell the students (by speaking) it's time to walk.
 		 */
-
+		}
+		playSound("moo.wav");
+		JOptionPane.showMessageDialog(null, "time to walk");
 	}
 
 	private void playSound(String fileName) {
