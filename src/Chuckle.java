@@ -7,15 +7,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Chuckle implements ActionListener {
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton button1 = new JButton();
+	JButton button2 = new JButton();
 	public static void main(String[] args) {
 		Chuckle chuck = new Chuckle();
 		chuck.makeButtons();
 	}
 	void makeButtons(){
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
-		JButton button1 = new JButton();
-		JButton button2 = new JButton();
+
 		frame.setVisible(true);
 		button1.setText("joke");
 		button2.setText("punchline");
@@ -25,9 +26,18 @@ public class Chuckle implements ActionListener {
 		button1.addActionListener(this);
 		button2.addActionListener(this);
 		frame.pack();
+		
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//JOptionPane.showMessageDialog(null, message);
+		if(e.getSource() == button1){
+			JOptionPane.showMessageDialog(null, "why did the chicken cross the road?");
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "to get to the other side.");
+
+		}
+		//JOptionPane.showMessageDialog(null, "hi");
+		
 	}
 }
