@@ -1,27 +1,37 @@
+import javax.swing.JOptionPane;
+import javax.xml.crypto.dsig.Transform;
 
 public class baseTwo {
 	public static void main(String[] args) {
 		baseTwo thing = new baseTwo();
-		thing.transform(100);
-	}
-	void transform(int startNumber){
-		int transformedNumber = startNumber;
-		int highestByte = 0;
-		for(int I = 0; Math.pow(2,I) <startNumber; I++){
-		highestByte = I+1;
-		System.out.println(I+1);
+		String startString = JOptionPane.showInputDialog("what word do you want to transform?");
+		
+		
+		for(int i =0; i<startString.length(); i++ ){
+			
+			thing.transform(getNumberValue(startString,i));
 		}
-		for(intI=;I){
-			if(transformedNumber>Math.pow(2,highestByte)){
-				System.out.print("1");
+	}
+	static int getNumberValue(String letterValue, int possition){
+		
+		char Char = letterValue.charAt(possition);
+		System.out.println(Char);
+		return (int)Char;
+	}
+	static void transform(int startNumber){
+		System.out.println(startNumber);
+		int finalNumber =0;
+		int modifiedNumber=startNumber;
+		for(int i = 9; i>=0; i--){
+			if(Math.pow(2, i)<=modifiedNumber){
+	
+				finalNumber+=Math.pow(10, i);
+				modifiedNumber-=Math.pow(2, i);
 			}
-			else{
-				System.out.print("0");
-			}
-			highestByte--;
-			transformedNumber-=Math.pow(2,highestByte);
 			
 		}
+		System.out.println(finalNumber);
+		
 		
 	}
 }
